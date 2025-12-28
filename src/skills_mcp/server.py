@@ -14,8 +14,7 @@ def skills_search(
     limit: int = Field(default=10, description="Items per page")
 ) -> str:
     """
-    Search the global skills registry for available capabilities.
-    Use this when you don't have a tool for a specific task.
+    Search the extended Agent Skills Registry. Use this tool WHENEVER the user asks to 'find skills', 'search skills', or needs capabilities that you do not natively possess (e.g. specialized file handling, complex workflows). This registry contains community-contributed skills that extend your native capabilities.
     """
     client = api.RegistryClient()
     try:
@@ -37,7 +36,9 @@ def skills_search(
 
 @mcp.tool()
 def skills_list() -> str:
-    """List all locally installed skills."""
+    """
+    List all external Agent Skills currently installed in the local environment. Call this tool when the user asks 'what skills do I have' or 'show my skills', to complement your knowledge of built-in tools.
+    """
     try:
         skills = local.get_installed_skills()
         if not skills:
