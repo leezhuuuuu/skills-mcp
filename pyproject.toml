@@ -1,6 +1,6 @@
 [project]
 name = "skills-mcp"
-version = "0.1.1"
+version = "0.1.2"
 description = "A Model Context Protocol (MCP) server for managing AI Agent Skills."
 readme = "README.md"
 authors = [
